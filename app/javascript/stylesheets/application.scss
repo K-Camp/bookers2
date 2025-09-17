@@ -1,1 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
+
+.navbar .nav-link,
+.navbar .nav-link i {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:hover i {
+  color: #dcdcdc !important;
+}
