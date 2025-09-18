@@ -14,65 +14,56 @@
   <body>
     <!-- ヘッダー -->
     <header class="mb-4">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <!-- 左側のロゴ -->
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
           <%= link_to "Bookers", root_path, class: "navbar-brand" %>
 
-          <!-- ハンバーガーメニュー -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="メニュー切替">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
           <!-- ナビメニュー -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to root_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-house me-1"></i>Home
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to users_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-user me-1"></i>Users
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to books_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-book me-1"></i>Books
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-right-from-bracket me-1"></i>Log out
-                  <% end %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to root_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-house me-1"></i>Home
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to about_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-link me-1"></i>About
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to new_user_registration_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-user-plus me-1"></i>Sign up
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to new_user_session_path, class: "nav-link d-flex align-items-center" do %>
-                    <i class="fa-solid fa-right-to-bracket me-1"></i>Log in
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+          <ul class="navbar-nav ms-auto d-flex flex-row">
+            <% if user_signed_in? %>
+              <li class="nav-item mr-3">
+                <%= link_to books_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-house me-1"></i>Home
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to users_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-users me-1"></i>Users
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to books_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-book-open me-1"></i>Books
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-right-from-bracket me-1"></i>Log out
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item mr-3">
+                <%= link_to root_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-house me-1"></i>Home
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to about_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-link me-1"></i>About
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to new_user_registration_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-user-plus me-1"></i>Sign up
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to new_user_session_path, class: "nav-link d-flex align-items-center" do %>
+                  <i class="fa-solid fa-right-to-bracket me-1"></i>Log in
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </nav>
     </header>

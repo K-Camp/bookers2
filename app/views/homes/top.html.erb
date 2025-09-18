@@ -1,1 +1,22 @@
-<h1>Topページ</h1>
+<main class="d-flex justify-content-center align-items-center">
+  <div>
+    <h1>welcome to <i class="fas fa-book"></i><strong>Bookers</strong>!!</h1>
+    <p>
+      In <i class="fas fa-book"></i><strong>Bookers</strong>,
+    </p>
+    <p>
+      you can share and exchange your opinions, impressions, and emotions <br>
+    </p>
+    <p>
+      about various books!
+    </p>
+    <%= link_to new_user_session_path, class: "btn btn-primary btn-block" do %>
+      Log in
+    <% end %>
+    <%= link_to new_user_registration_path, class: "btn btn-secondary btn-block" do %>
+      Sign up
+    <% end %>
+  </div>
+  
+</main>
+
