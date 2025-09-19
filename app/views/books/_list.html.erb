@@ -1,0 +1,43 @@
+<div class="col-md-3 mb-3">
+  <!-- User Info -->
+  <h2>User Info</h2>
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image, width: "100", height: "100" %>
+  <% else %>
+    <%= image_tag "no_image.jpg", width: "100", height: "100"%>
+  <% end %>
+  <%= form_with model: @user do |f| %>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+        </tbody>
+    </table>
+  <% end %>
+
+  <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary w-100" do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+  
+  <!-- New Book -->
+  <h2>New Book</h2>
+  <%= form_with model: @book do |f| %>
+    <div class="form-group">
+      <label for="book-title">Title</label><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label for="book-body">Opinion</label>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Create Book", class: "btn btn-success mt-2" %>  
+  <% end %>
+</div>
