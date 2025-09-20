@@ -27,7 +27,7 @@
   
   <!-- New Book -->
   <h2>New Book</h2>
-  <%= form_with model: book do |f| %>
+  <%= form_with model: book, local: true do |f| %>
     <div class="form-group">
       <label for="book-title">Title</label><br>
       <%= f.text_field :title, class: "form-control" %>

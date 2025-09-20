@@ -22,7 +22,7 @@
           <ul class="navbar-nav ms-auto d-flex flex-row">
             <% if user_signed_in? %>
               <li class="nav-item mr-3">
-                <%= link_to books_path, class: "nav-link d-flex align-items-center" do %>
+                <%= link_to user_path(current_user.id), class: "nav-link d-flex align-items-center" do %>
                   <i class="fa-solid fa-house mr-1"></i>Home
                 <% end %>
               </li>

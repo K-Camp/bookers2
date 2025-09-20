@@ -1,0 +1,46 @@
+<body>
+  <main class="container px-5 px-sm-0">
+    <div class="row">
+      <!-- 左カラム -->
+      <%= render 'list', user: @user , book: Book.new %>
+
+      <!-- 右カラム -->
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+          <table class="table table-hover table-inverse">
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to user_path(current_user.id) do %>
+                    <% if @book.image.attached? %>
+                      <%= image_tag @book.image, size: "80x80" %>
+                    <% else %>
+                      <%= image_tag "no_image.jpg", size: "80x80" %>
+                    <% end %>
+                    <div><%= @book.user.name %></div>
+                  <% end %>
+                </td>
+                <td><%= @book.title %></td>
+                <td><%= @book.body %></td>
+                <% if current_user.id == @book.user.id %>
+                  <td>
+                    <%= link_to edit_book_path(@book), class:"btn btn-success" do %>
+                      Edit
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(@book), method: :delete, class:"btn btn-danger" do %>
+                      Delete
+                    <% end %>
+                  </td>
+                <% else %>
+                  <td></td>
+                  <td></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </main>
+</body>
