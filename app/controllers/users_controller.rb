@@ -19,8 +19,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "User profile was successfully updated."
       redirect_to books_path
     else
+      flash[:error] = "User update error."
       render :edit
     end
   end

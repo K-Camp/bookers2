@@ -70,6 +70,10 @@
 
     <!-- メインコンテンツ -->
     <main class="container">
+      <!-- フラッシュメッセージ -->
+      <% flash.each do |key, message| %>
+        <%= message %>
+      <% end %>
       <%= yield %>
     </main>
 
