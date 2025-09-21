@@ -2,7 +2,7 @@
   <main class="container px-5 px-sm-0">
     <div class="row">
       <!-- 左カラム -->
-      <%= render 'list', user: @user , book: Book.new %>
+      <%= render 'list', user: @user , book: @new_book %>
 
       <!-- 右カラム -->
       <div class="col-md-8 offset-md-1">
@@ -11,16 +11,20 @@
             <tbody>
               <tr>
                 <td>
-                  <%= link_to user_path(current_user.id) do %>
-                    <% if @book.image.attached? %>
-                      <%= image_tag @book.image, size: "80x80" %>
+                  <%= link_to user_path(@book.user.id) do %>
+                    <% if @book.user.profile_image.attached? %>
+                      <%= image_tag @book.user.profile_image, size: "80x80" %>
                     <% else %>
                       <%= image_tag "no_image.jpg", size: "80x80" %>
                     <% end %>
                     <div><%= @book.user.name %></div>
                   <% end %>
                 </td>
-                <td><%= @book.title %></td>
+                <td>
+                  <%= link_to book_path(@book)do %>
+                    <%= @book.title %>
+                  <% end %>
+                </td>
                 <td><%= @book.body %></td>
                 <% if current_user.id == @book.user.id %>
                   <td>
@@ -30,7 +34,7 @@
                   </td>
                   <td>
                     <%= link_to book_path(@book), method: :delete, class:"btn btn-danger" do %>
-                      Delete
+                      Destroy
                     <% end %>
                   </td>
                 <% else %>
